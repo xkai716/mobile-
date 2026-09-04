@@ -44,10 +44,6 @@ import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -71,7 +67,6 @@ fun LoginScreen(
     onEmailChange: (String) -> Unit,
     onPasswordChange: (String) -> Unit,
     onTogglePasswordVisibility: () -> Unit,
-    onToggleRememberMe: () -> Unit,
     onSignIn: () -> Unit,
     onSignUpClick: () -> Unit,
     onForgotPassword: () -> Unit,
@@ -168,14 +163,7 @@ fun LoginScreen(
                         verticalAlignment = Alignment.CenterVertically,
                         horizontalArrangement = Arrangement.SpaceBetween
                     ) {
-                        Row(verticalAlignment = Alignment.CenterVertically) {
-                            Checkbox(
-                                checked = uiState.rememberMe,
-                                onCheckedChange = { onToggleRememberMe() },
-                                modifier = Modifier.size(32.dp)
-                            )
-                            Text("Remember me", fontSize = 12.sp, color = TextGray)
-                        }
+
                         Text(
                             text = "Forgot password?",
                             color = EcoGreen,
@@ -208,17 +196,6 @@ fun LoginScreen(
                         }
                     }
 
-                    Row(verticalAlignment = Alignment.CenterVertically) {
-                        HorizontalDivider(Modifier.weight(1f), color = EcoGreenLight)
-                        Text(
-                            "SUPABASE EMAIL AUTH",
-                            modifier = Modifier.padding(horizontal = 10.dp),
-                            color = TextGray,
-                            fontSize = 9.sp,
-                            fontWeight = FontWeight.Bold
-                        )
-                        HorizontalDivider(Modifier.weight(1f), color = EcoGreenLight)
-                    }
                 }
             }
 

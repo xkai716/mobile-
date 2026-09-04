@@ -150,7 +150,6 @@ class MainActivity : ComponentActivity() {
                         onEmailChange = authViewModel::onEmailChange,
                         onPasswordChange = authViewModel::onPasswordChange,
                         onTogglePasswordVisibility = authViewModel::togglePasswordVisibility,
-                        onToggleRememberMe = authViewModel::toggleRememberMe,
                         onSignIn = authViewModel::signIn,
                         onForgotPassword = authViewModel::resetPassword,
                         onSignUpClick = { navController.navigate(Routes.SIGN_UP) }
